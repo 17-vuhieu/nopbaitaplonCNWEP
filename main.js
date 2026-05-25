@@ -13,44 +13,66 @@ function showGreeting() {
   }
 }
 
-document.getElementById("expenseForm").addEventListener("submit", function (e) {
-  e.preventDefault();
-
-  const mssv = document.getElementById("mssv").value.trim();
-  const name = document.getElementById("expenseName").value;
-  const amount = Number(document.getElementById("expenseAmount").value);
-  const type = document.getElementById("expenseType").value;
-  const date = document.getElementById("expenseDate").value;
-
-  const formattedAmount = amount.toLocaleString("vi-VN") + " đ";
-
-  const newRowHTML = `
-        <tr>
-            <td><strong>${mssv}</strong></td>
-            <td>${name}</td>
-            <td class="text-danger font-weight-bold">${formattedAmount}</td>
-            <td><span class="badge badge-secondary p-2">${type}</span></td>
-            <td>${date}</td>
-        </tr>
-    `;
-
+function renderExpenses() {
   const tableBody = document.getElementById("expenseTableBody");
-  const lastDigit = parseInt(mssv.charAt(mssv.length - 1));
+  if (!tableBody) return;
 
-  if (isNaN(lastDigit)) {
-    alert("Vui lòng nhập Mã số sinh viên hợp lệ (ký tự cuối phải là số)!");
-    return;
-  }
+  tableBody.innerHTML = "";
 
-  if (lastDigit % 2 !== 0) {
-    tableBody.insertAdjacentHTML("afterbegin", newRowHTML);
-  } else {
-    tableBody.insertAdjacentHTML("beforeend", newRowHTML);
-  }
+  let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
 
-  document.getElementById("expenseForm").reset();
-});
+  expenses.forEach((item) => {
+    const formattedAmount = Number(item.amount).toLocaleString("vi-VN") + " đ";
+    const rowHTML = `
+            <tr>
+                <td><strong>${item.mssv}</strong></td>
+                <td>${item.name}</td>
+                <td class="text-danger font-weight-bold">${formattedAmount}</td>
+                <td><span class="badge badge-secondary p-2">${item.type}</span></td>
+                <td>${item.date}</td>
+            </tr>
+        `;
+
+    const lastDigit = parseInt(item.mssv.charAt(item.mssv.length - 1));
+    if (lastDigit % 2 !== 0) {
+      tableBody.insertAdjacentHTML("afterbegin", rowHTML);
+    } else {
+      tableBody.insertAdjacentHTML("beforeend", rowHTML);
+    }
+  });
+}
+
+const formElement = document.getElementById("expenseForm");
+if (formElement) {
+  formElement.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const mssv = document.getElementById("mssv").value.trim();
+    const name = document.getElementById("expenseName").value;
+    const amount = document.getElementById("expenseAmount").value;
+    const type = document.getElementById("expenseType").value;
+    const date = document.getElementById("expenseDate").value;
+
+    const lastDigit = parseInt(mssv.charAt(mssv.length - 1));
+    if (isNaN(lastDigit)) {
+      alert("Vui lòng nhập Mã số sinh viên hợp lệ (ký tự cuối phải là số)!");
+      return;
+    }
+
+    let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+
+    const newExpense = { mssv, name, amount, type, date };
+    expenses.push(newExpense);
+
+    localStorage.setItem("expenses", JSON.stringify(expenses));
+
+    renderExpenses();
+
+    formElement.reset();
+  });
+}
 
 window.addEventListener("DOMContentLoaded", () => {
   showGreeting();
+  renderExpenses();
 });
