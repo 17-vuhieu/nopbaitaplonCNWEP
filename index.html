@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang Chủ - Quản Lý Chi Tiêu</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Ví Sinh Viên</a>
+        <div class="navbar-nav">
+          <a class="nav-link active" href="index.html">Trang Chủ</a>
+          <a class="nav-link" href="quanly.html">Trang Quản Lý</a>
+          <a class="nav-link" href="debug.html">Trang Debug</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="container mt-4">
+      <div class="jumbotron bg-info text-white">
+        <h1 class="display-4">Quản Lý Chi Tiêu Sinh Viên</h1>
+        <p class="lead">
+          Chào mừng bạn đến với hệ thống quản lý tài chính cá nhân. Hãy đặt mục
+          tiêu rõ ràng để quản lý ngân sách hiệu quả!
+        </p>
+        <hr class="my-4 bg-white" />
+        <p>
+          <strong>Mục tiêu tài chính của tôi:</strong> Tiết kiệm 30% thu nhập
+          hàng tháng để đầu tư học tập và hạn chế ăn vặt tối đa.
+        </p>
+      </div>
+
+      <div
+        id="tiemKiemCarousel"
+        class="carousel slide my-4 shadow"
+        data-ride="carousel"
+      >
+        <div class="carousel-inner">
+          <div class="carousel-item active bg-warning text-dark text-center">
+            <div class="carousel-content">
+              <h3>💡 Mẹo #1: Quy tắc 50/30/20</h3>
+              <p class="lead">
+                50% cho nhu cầu thiết yếu, 30% cho sở thích và 20% tích lũy tiết
+                kiệm.
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item bg-success text-white text-center">
+            <div class="carousel-content">
+              <h3>💡 Mẹo #2: Tự nấu ăn tại nhà</h3>
+              <p class="lead">
+                Hạn chế ăn ngoài giúp bạn tiết kiệm được một khoản tiền cực kỳ
+                lớn mỗi tháng.
+              </p>
+            </div>
+          </div>
+          <div class="carousel-item bg-danger text-white text-center">
+            <div class="carousel-content">
+              <h3>💡 Mẹo #3: Ghi chép mọi khoản chi</h3>
+              <p class="lead">Dù chỉ là 5.000đ mua gửi xe, hãy ghi rõ lại</p>
+            </div>
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-target="#tiemKiemCarousel"
+          data-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-target="#tiemKiemCarousel"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </header>
+
+    <footer class="text-center py-4 bg-dark text-white-50 mt-5">
+      <p class="m-0">© 2026 Hệ Thống Quản Lý Tài Chính Sinh Viên</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

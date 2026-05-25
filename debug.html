@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang Sửa Lỗi Code</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Ví Sinh Viên</a>
+        <div class="navbar-nav">
+          <a class="nav-link" href="index.html">Trang Chủ</a>
+          <a class="nav-link" href="quanly.html">Trang Quản Lý</a>
+          <a class="nav-link active" href="debug.html">Trang Debug</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container my-5">
+      <section class="card p-4 border-danger shadow-sm">
+        <h2 class="text-danger mb-4">Trang Debug Code</h2>
+
+        <div class="row">
+          <div class="col-md-6">
+            <h5>1. Đoạn mã gốc bị lỗi (Theo yêu cầu):</h5>
+            <pre
+              class="bg-dark text-warning p-3 rounded"
+            ><code>function showGreeting() {
+  let hour = new Date().getHours();
+  let greeting = document.getelementbyid("23010001_txt_msg");
+  if (hour &lt; 12) {
+    greeting.innertext = "Chào buổi sáng!";
+  } else (hour &lt; 18) {
+    greeting.innertext = "Chào buổi chiều!";
+  }
+}</code></pre>
+          </div>
+
+          <div class="col-md-6">
+            <h5>2. Kết quả chạy thử hàm đã sửa:</h5>
+            <div class="alert alert-success p-3 text-center font-weight-bold">
+              Tin nhắn hệ thống:
+              <span id="23010001_txt_msg">[Đang tải...]</span>
+            </div>
+
+            <h5>3. Giải thích các lỗi sai đã tìm thấy:</h5>
+            <ul
+              class="list-group list-group-flush text-left border rounded p-2 bg-light"
+            >
+              <li class="list-group-item py-1">
+                ❌ <code>getelementbyid</code>: Sai cú pháp camelCase. Sửa thành
+                <code>getElementById</code>.
+              </li>
+              <li class="list-group-item py-1">
+                ❌ <code>else (hour &lt; 18)</code>: Lệnh
+                <code>else</code> không được có điều kiện. Sửa thành
+                <code>else if (hour &lt; 18)</code>.
+              </li>
+              <li class="list-group-item py-1">
+                ❌ <code>innertext</code>: Sai cú pháp DOM. Sửa thành
+                <code>innerText</code>.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="text-center py-4 bg-dark text-white-50 mt-5">
+      <p class="m-0">© 2026 Hệ Thống Quản Lý Tài Chính Sinh Viên</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

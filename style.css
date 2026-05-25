@@ -1,0 +1,39 @@
+body {
+  background-color: #f4f6f9;
+  font-family: Arial, sans-serif;
+}
+
+.carousel-item {
+  border-radius: 10px;
+  min-height: 160px;
+}
+
+.carousel-content {
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+}
+
+.image-container {
+  max-width: 320px;
+  height: 220px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #e9ecef;
+}
+
+.image-container img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+pre {
+  font-size: 0.9rem;
+  overflow-x: auto;
+}

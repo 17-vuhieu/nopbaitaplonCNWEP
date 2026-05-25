@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Trang Quản Lý Chi Tiêu</title>
+    <link
+      class="rtl"
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">Ví Sinh Viên</a>
+        <div class="navbar-nav">
+          <a class="nav-link" href="index.html">Trang Chủ</a>
+          <a class="nav-link active" href="quanly.html">Trang Quản Lý</a>
+          <a class="nav-link" href="debug.html">Trang Debug</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container my-5">
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <div class="card p-4 shadow-sm border-primary">
+            <h2 class="text-primary mb-4">Trang Quản Lý Chi Tiêu</h2>
+            <form id="expenseForm">
+              <div class="form-group">
+                <label for="mssv">Mã số sinh viên (Để phân loại chèn):</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="mssv"
+                  placeholder="Ví dụ: 254D4800283"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label interpreter="text" for="expenseName"
+                  >Tên khoản chi:</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="expenseName"
+                  placeholder="Ví dụ: Mua sách vở"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="expenseAmount">Số tiền (VNĐ):</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="expenseAmount"
+                  placeholder="Ví dụ: 150000"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="expenseType">Loại chi phí:</label>
+                <select class="form-control" id="expenseType">
+                  <option value="Học tập">Học tập</option>
+                  <option value="Ăn uống">Ăn uống</option>
+                  <option value="Di chuyển">Di chuyển</option>
+                  <option value="Giải trí">Giải trí</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="expenseDate">Ngày chi:</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="expenseDate"
+                  required
+                />
+              </div>
+              <button type="submit" class="btn btn-primary btn-block">
+                Thêm khoản chi
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+          <div class="card p-4 shadow-sm border-secondary text-center">
+            <h2 class="text-secondary mb-3">Xác Thực Chủ Sở Hữu</h2>
+            <p class="text-muted">
+              Ảnh thẻ SV hoặc ảnh thực tế đang ở khuôn viên trường / giao dịch
+            </p>
+            <div class="image-container mx-auto border rounded mb-3 bg-light">
+              <img
+                src="z7834999838972_ba3a53071dde8cb631c17bce62fbb01f.jpg"
+                alt="Ảnh xác thực sinh viên"
+                class="img-fluid rounded"
+              />
+            </div>
+            <div class="alert alert-info py-2 small">
+              Yêu cầu bắt buộc để cá nhân hóa hệ thống quản lý tài chính.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="mt-4">
+        <h3 class="mb-3 text-dark">Danh Sách Khoản Chi Thực Tế</h3>
+        <div class="table-responsive">
+          <table
+            class="table table-striped table-bordered table-hover text-center"
+          >
+            <thead class="thead-dark">
+              <tr>
+                <th>Mã SV</th>
+                <th>Tên khoản chi</th>
+                <th>Số tiền</th>
+                <th>Loại chi phí</th>
+                <th>Ngày chi</th>
+              </tr>
+            </thead>
+            <tbody id="expenseTableBody"></tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <footer class="text-center py-4 bg-dark text-white-50 mt-5">
+      <p class="m-0">© 2026 Hệ Thống Quản Lý Tài Chính Sinh Viên</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
